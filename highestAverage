@@ -1,0 +1,70 @@
+//create a js function to check if the number matches or not;
+//suppose yoou have a number variable lets say x=24;
+//create a function  to genereate a random number to 2 digit unless the number matches to the vallue 24.
+
+const toCheck=55;
+const checkUnique=(numb,i) =>{
+  if (numb===toCheck){
+    console.log("math on loop: "+i)
+  }else {
+    numb=(Math.floor ((Math.random()*99)))
+    checkUnique(numb,++i)
+  } 
+  
+}
+//random generate 
+checkUnique((Math.floor ((Math.random()*99))),1)
+
+
+/// Find the highest average from the array: 
+/**
+ * 
+ * const students = [
+  { name: "Alice", scores: [90, 85, 92] },
+  { name: "Bob", scores: [100, 100, 100] },
+  { name: "Charlie", scores: [90, 95, 85] },
+  { name: "Jack", scores: [100, 100, 100] }
+];
+output: 
+[ 
+    { name: "Bob", scores: [100, 100, 100] },
+    { name: 'Jack', average: 100 }
+]
+ */ 
+
+const students = [
+  {
+     name: "Alice", scores: [90, 85, 92] },
+  {
+     name: "Bob", scores: [100, 100, 100] },
+  { 
+     name: "Charlie", scores: [90, 95, 85] },
+  { 
+     name: "Jack", scores: [100, 100, 100] }
+];
+
+function findHighestAverage(students) {
+  let highestAverage = 0;
+  let highestAverageStudents = [];
+
+  for (const student of students) 
+  {
+    const average = student.scores.reduce((sum, score) => sum + score, 0) / student.scores.length;
+
+    if (average > highestAverage) 
+    {
+      highestAverage = average;
+      highestAverageStudents = [
+        { 
+          name: student.name, scores: student.scores, average: average }];
+    } 
+    else if (average === highestAverage) {
+      highestAverageStudents.push({ name: student.name, scores: student.scores, average: average });
+    }
+  }
+
+  return highestAverageStudents;
+}
+
+const result = findHighestAverage(students);
+console.log(result);
