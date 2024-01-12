@@ -10,3 +10,5 @@ console.log("i am first")
 console.log("i am 2nd")
 console.log("i am 3rd")
 console.log("i am 4th")
+//promise based 
+//await based
